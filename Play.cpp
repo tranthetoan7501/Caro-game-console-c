@@ -233,6 +233,79 @@ void LogoGame2()
 
 }
 
+void PrintP1Win()
+{
+	AnTroChuot();
+	int check = 1;
+	int x = 50, y = 18;
+	while (check < 30)
+	{
+		TextColor(rand() % 15 + 1);
+		Common::gotoXY(x + 4, y + 4); cout << "xxxxxxxxxxxxxx             xxxxxxxxx                                                xxxx";
+		Common::gotoXY(x + 4, y + 5); cout << "xxxxxx   xxxxxx          xxxxxxxxxxx                                                xxxx";
+		Common::gotoXY(x + 4, y + 6); cout << "xxxxx     xxxxxx        xxxxx   xxxx";
+		Common::gotoXY(x + 4, y + 7); cout << "xxxxx     xxxxxx       xxxxx    xxxx";
+		Common::gotoXY(x + 4, y + 8); cout << "xxxxxx   xxxxxx       xxxxx     xxxx          xxxx                            xxxx  xxxx   xxxxxxxxxxxxxxxx";
+		Common::gotoXY(x + 4, y + 9); cout << "xxxxxxxxxxxxxx                  xxxx           xxxx                          xxxx   xxxx   xxxxxxxxxxxxxxxx";
+		Common::gotoXY(x + 4, y + 10); cout << "xxxx                            xxxx            xxxx         xxxxxxx        xxxx    xxxx   xxxx        xxxx";
+		Common::gotoXY(x + 4, y + 11); cout << "xxxx                            xxxx             xxxx      xxxx  xxxx      xxxx     xxxx   xxxx        xxxx";
+		Common::gotoXY(x + 4, y + 12); cout << "xxxx                            xxxx              xxxx   xxxx     xxxx    xxxx      xxxx   xxxx        xxxx";
+		Common::gotoXY(x + 4, y + 13); cout << "xxxx                            xxxx               xxxx xxxx        xxxx xxxx       xxxx   xxxx        xxxx";
+		Common::gotoXY(x + 4, y + 14); cout << "xxxx                            xxxx                xxxxxxx          xxxxxxx        xxxx   xxxx        xxxx";
+		Sleep(200);
+		check++;
+	}
+}
+
+void PrintP2Win()
+{
+	AnTroChuot();
+	int check = 1;
+	int x = 50, y = 18;
+	while (check < 30)
+	{
+		TextColor(rand() % 15 + 1);
+		Common::gotoXY(x + 4, y + 4); cout << "xxxxxxxxxxxxxx       xxxxxxxxxxxxx                                                xxxx";
+		Common::gotoXY(x + 4, y + 5); cout << "xxxxxx   xxxxxx      xxxxxxxxxxxxx                                                xxxx";
+		Common::gotoXY(x + 4, y + 6); cout << "xxxxx     xxxxxx     xxxx     xxxx";
+		Common::gotoXY(x + 4, y + 7); cout << "xxxxx     xxxxxx     xxxx     xxxx";
+		Common::gotoXY(x + 4, y + 8); cout << "xxxxxx   xxxxxx               xxxx          xxxx                            xxxx  xxxx   xxxxxxxxxxxxxxxx";
+		Common::gotoXY(x + 4, y + 9); cout << "xxxxxxxxxxxxxx       xxxxxxxxxxxxx           xxxx                          xxxx   xxxx   xxxxxxxxxxxxxxxx";
+		Common::gotoXY(x + 4, y + 10); cout << "xxxx                 xxxxxxxxxxxxx            xxxx         xxxxxxx        xxxx    xxxx   xxxx        xxxx";
+		Common::gotoXY(x + 4, y + 11); cout << "xxxx                 xxxx                      xxxx      xxxx  xxxx      xxxx     xxxx   xxxx        xxxx";
+		Common::gotoXY(x + 4, y + 12); cout << "xxxx                 xxxx                       xxxx   xxxx     xxxx    xxxx      xxxx   xxxx        xxxx";
+		Common::gotoXY(x + 4, y + 13); cout << "xxxx                 xxxxxxxxxxxxx               xxxx xxxx        xxxx xxxx       xxxx   xxxx        xxxx";
+		Common::gotoXY(x + 4, y + 14); cout << "xxxx                 xxxxxxxxxxxxx                xxxxxxx          xxxxxxx        xxxx   xxxx        xxxx";
+		Sleep(200);
+		check++;
+	}
+}
+
+void PrintDraw()
+{
+	AnTroChuot();
+	int check = 1;
+	int x = 50, y = 18;
+	while (check < 30)
+	{
+		TextColor(rand() % 15 + 1);
+		Common::gotoXY(x + 4, y + 4); cout <<  "xxxxxxxxxxxxxx";
+		Common::gotoXY(x + 4, y + 5); cout <<  "xxxxx    xxxxxx";
+		Common::gotoXY(x + 4, y + 6); cout <<  "xxxxx     xxxxxx";
+		Common::gotoXY(x + 4, y + 7); cout <<  "xxxxx      xxxxxx";
+		Common::gotoXY(x + 4, y + 8); cout <<  "xxxxx       xxxxxx   xxxxxxxxxxxxx    xxxxxxxxxxxxx        xxxx                            xxxx";
+		Common::gotoXY(x + 4, y + 9); cout <<  "xxxxx       xxxxxx   xxxxxxxxxxxxx    xxxxxxxxxxxxx         xxxx                          xxxx";
+		Common::gotoXY(x + 4, y + 10); cout << "xxxxx       xxxxxx   xxxx             xxxx     xxxx          xxxx         xxxxxxx        xxxx";
+		Common::gotoXY(x + 4, y + 11); cout << "xxxxx      xxxxxx    xxxx             xxxx     xxxx           xxxx      xxxx  xxxx      xxxx";
+		Common::gotoXY(x + 4, y + 12); cout << "xxxxx     xxxxxx     xxxx             xxxx     xxxx            xxxx   xxxx     xxxx    xxxx";
+		Common::gotoXY(x + 4, y + 13); cout << "xxxxx    xxxxxx      xxxx             xxxxxxxxxxxxxxxxx         xxxx xxxx        xxxx xxxx";
+		Common::gotoXY(x + 4, y + 14); cout << "xxxxxxxxxxxxxx       xxxx             xxxxxxxxxxxxxxxxx          xxxxxxx          xxxxxxx";
+		
+		Sleep(200);
+		check++;
+	}
+}
+
 void TaoKhung(int bottom)
 {
 	char lr = 186;

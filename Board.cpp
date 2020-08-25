@@ -64,7 +64,7 @@ void checkBoard::drawBoard()
 	Common::gotoXY(177, 24); cout << ": SO LUOT";
 	Common::gotoXY(15, 27); cout << "SO TRAN THANG : ";
 	Common::gotoXY(171, 27); cout << ": SO TRAN THANG";
-
+	TextColor(11);
 	Common::gotoXY(8, 7);
 	for (int i = 0; i < 185; i++)
 	{

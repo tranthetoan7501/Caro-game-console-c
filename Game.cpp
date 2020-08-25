@@ -159,16 +159,15 @@ int Game::processFinish(int x, int y)
 	{
 	case -1:
 		system("cls");
-		cout << "p1 win";
+		PrintP1Win();
 		break;
 	case 1:
 		system("cls");
-		cout << "p2 win";
+		PrintP2Win();
 		break;
 	case 0:
 		system("cls");
-		
-		cout << "hoa hoa hoa";
+		PrintDraw();
 		break;
 	case 2:
 		turn = !turn;

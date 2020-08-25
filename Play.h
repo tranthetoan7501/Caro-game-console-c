@@ -34,6 +34,9 @@ int ReadChedo(char a[30]); // Đọc chế độ chơi
 void ReadNameFile();  // Đọc tên các file đã lưu
 void LogoGame1();
 void LogoGame2();
+void PrintP1Win();
+void PrintP2Win();
+void PrintDraw();
 void TaoKhung(int);
 void Screen();
 void signTurn(int);
