@@ -16,7 +16,7 @@ int ReadChedo(char a[30])
 	ifstream f;
 	f.open(a, ios::in);
 	if (!f) {
-		Common::gotoXY(35, 46);
+		Common::gotoXY(80, 46);
 		cout << "\n FILE KHONG TON TAI!" << endl;
 		Sleep(1000);
 		ScreenStartGame(99);
@@ -414,6 +414,7 @@ void ScreenStartGame(int n)
 	Common::gotoXY(96, 37); cout << "EXIT";
 	if (n == 100)
 	{
+		PlaySound(TEXT("vaogame.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		Screen();
 	}
 	else
@@ -433,7 +434,7 @@ void ScreenStartGame(int n)
 		else if (select == 2 && coordinate > 25) coordinate -= 2;
 		if (coordinate == 25)
 		{
-			
+			PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			TextColor(78);
 			Common::gotoXY(90, 25); cout << "PLAYER VS PLAYER"; TextColor(11);
 			Common::gotoXY(87, 27); cout << "PLAYER WITH COMPUTER (easy)";
@@ -445,7 +446,7 @@ void ScreenStartGame(int n)
 		}
 		if (coordinate == 27)
 		{
-
+			PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			TextColor(11);
 			Common::gotoXY(90, 25); cout << "PLAYER VS PLAYER"; TextColor(78);
 			Common::gotoXY(87, 27); cout << "PLAYER WITH COMPUTER (easy)"; TextColor(11);
@@ -457,7 +458,7 @@ void ScreenStartGame(int n)
 		}
 		if (coordinate == 29)
 		{
-
+			PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			TextColor(11);
 			Common::gotoXY(90, 25); cout << "PLAYER VS PLAYER";
 			Common::gotoXY(87, 27); cout << "PLAYER WITH COMPUTER (easy)"; TextColor(78);
@@ -469,7 +470,7 @@ void ScreenStartGame(int n)
 		}
 		if (coordinate == 31)
 		{
-
+			PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			TextColor(11);
 			Common::gotoXY(90, 25); cout << "PLAYER VS PLAYER";
 			Common::gotoXY(87, 27); cout << "PLAYER WITH COMPUTER (easy)";
@@ -481,7 +482,7 @@ void ScreenStartGame(int n)
 		}
 		if (coordinate == 33)
 		{
-
+			PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			TextColor(11);
 			Common::gotoXY(90, 25); cout << "PLAYER VS PLAYER";
 			Common::gotoXY(87, 27); cout << "PLAYER WITH COMPUTER (easy)";
@@ -493,7 +494,7 @@ void ScreenStartGame(int n)
 		}
 		if (coordinate == 35)
 		{
-
+			PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			TextColor(11);
 			Common::gotoXY(90, 25); cout << "PLAYER VS PLAYER";
 			Common::gotoXY(87, 27); cout << "PLAYER WITH COMPUTER (easy)";
@@ -505,6 +506,7 @@ void ScreenStartGame(int n)
 		}
 		if (coordinate == 37)
 		{
+			PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			TextColor(11);
 			Common::gotoXY(90, 25); cout << "PLAYER VS PLAYER";
 			Common::gotoXY(87, 27); cout << "PLAYER WITH COMPUTER (easy)";
@@ -556,6 +558,20 @@ void ScreenStartGame(int n)
 	{
 		LoadLoad();
 	}
+	if (coordinate == 33)
+	{
+		About();
+		ScreenStartGame(99);
+	}
+	if (coordinate == 35)
+	{
+		Help();
+		ScreenStartGame(99);
+	}
+	if (coordinate == 37)
+	{
+		exit(0);
+	}
 }
 
 int VsPlayer(Diem& a, int load, char data[30])//struc điểm
@@ -592,7 +608,7 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 	{
 		g.waitKeyBoard();
 		if (g.getCommand() == 27) {
-			//
+			PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			return 27;
 		}
 		else
@@ -601,34 +617,34 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 			switch (g.getCommand())
 			{
 			case 'A':
-				//
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				g.moveLeft();
 				break;
 			case 'D':
-				//
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				g.moveRight();
 				break;
 			case 'W':
-				//
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				g.moveUp();
 				break;
 			case 'S':
-				//
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				g.moveDown();
 				break;
 			case 'L':
-				//
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				if (g.getTurn() == 1)
 					g.SaveGame(-31);
 				else
 					g.SaveGame(-30);
 				break;
 			case 'T':
-				//
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				LoadLoad();
 				break;
 			case 13:
-				//
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				int x = g.getXatEnter();
 				int y = g.getYatEnter();
 				if (g.processCheckBoard()) {//đánh x, o;
@@ -642,12 +658,12 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 								switch (_getch())
 								{
 								case 'y':
-									//
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									load = 0;
 									return VsPlayer(a, load, data);
 									break;
 								case 27:
-									//
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									system("cls");
 									ScreenStartGame(n);
 									break;
@@ -664,12 +680,12 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 								switch (_getch())
 								{
 								case 'y':
-									//
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									load = 0;
 									return VsPlayer(a, load, data);
 									break;
 								case 27:
-									//
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									system("cls");
 									ScreenStartGame(n);
 									break;
@@ -685,12 +701,12 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 								switch (_getch())
 								{
 								case 'y':
-									//
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									load = 0;
 									return VsPlayer(a, load, data);
 									break;
 								case 27:
-									//
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									system("cls");
 									ScreenStartGame(n);
 									break;
@@ -757,7 +773,7 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 			g.waitKeyBoard();
 		if (g.getCommand() == 27)
 		{
-	
+			PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			return 27;
 		}
 		else
@@ -765,31 +781,31 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 			switch (g.getCommand())
 			{
 			case 'A':
-				
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				g.moveLeft();
 				break;
 			case 'D':
-			
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				g.moveRight();
 				break;
 			case 'W':
-				
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				g.moveUp();
 				break;
 			case 'S':
-				
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				g.moveDown();
 				break;
 			case 'L':
-				
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				g.SaveGame(-5);
 				break;
 			case 'T':
-				
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				LoadLoad();
 				break;
 			case 13:
-				
+				PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				int x = g.getXatEnter();
 				int y = g.getYatEnter();
 				if (g.processCheckBoard()) {
@@ -803,12 +819,12 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 								switch (_getch())
 								{
 								case 'y':
-									
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									load = 0;
 									return VsComEasy(a, load, data);
 									break;
 								case 27:
-									
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									system("cls");
 									ScreenStartGame(n - 1);
 									break;
@@ -825,12 +841,12 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 								switch (_getch())
 								{
 								case 'y':
-									
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									load = 0;
 									return VsComEasy(a, load, data);
 									break;
 								case 27:
-									
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									system("cls");
 									ScreenStartGame(n - 1);
 									break;
@@ -847,12 +863,12 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 								switch (_getch())
 								{
 								case 'y':
-									
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									load = 0;
 									return VsComEasy(a, load, data);
 									break;
 								case 27:
-									
+									PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									system("cls");
 									ScreenStartGame(n - 1);
 									break;
@@ -866,6 +882,113 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 		}
 
 	}
+ }
+ void Help()
+ {
+	 
+	 int x = 80, y = 20;
+	 Common::gotoXY(x, y);
+	 for (int i = x; i < x+50; i++)
+	 {
+		 cout << char(220);
+	 }
+	 Common::gotoXY(x-1, y-1);
+	 for (int i = x-1; i < x + 51; i++)
+	 {
+		 cout << char(220);
+	 }
+	 Common::gotoXY(x, y+17);
+	 for (int i = x; i < x + 50; i++)
+	 {
+		 cout << char(220);
+	 }
+	 Common::gotoXY(x - 1, y+18);
+	 for (int i = x - 1; i < x + 51; i++)
+	 {
+		 cout << char(220);
+	 }
+
+
+	 for (int i = 1; i < 18; i++)
+	 {
+		 Common::gotoXY(x, y + i); cout << char(219);
+		 Common::gotoXY(x+49, y + i); cout << char(219);
+	 }
+	 Common::gotoXY(x + 2, y + 1); cout << "              Huong dan :";
+	 Common::gotoXY(x+2, y+3); cout << "  L : Luu Game Da choi.";
+	 Common::gotoXY(x+2, y+4); cout << "  T : Tai Game Da choi.";
+	 Common::gotoXY(x+2, y+5); cout << "  ESc : Thoat Game.";
+	 Common::gotoXY(x+2, y+6); cout << "  Load Game : Tai Game Da choi.";
+
+	 Common::gotoXY(x + 2, y + 9); cout << "              Luat choi : ";
+	 Common::gotoXY(x + 2, y + 10); cout << "  Du 5 quan co lien tiep ma hai dau khong bi ";
+	 Common::gotoXY(x + 2, y + 11); cout << "  chan boi hai quan dich la chien thang";
+	 Common::gotoXY(x + 2, y + 13); cout << " ^_^ | Chuc cac ban choi game vui ve | ^_^";
+	
+	 Common::gotoXY(x + 2, y + 16); cout << "    Nhan bat ky de quay lai.";
+	
+
+	 cout << "    <<<<BACK";
+	 PlaySound(TEXT("abouthelp.wav"), NULL, SND_FILENAME | SND_ASYNC);
+	 char command = ' ';
+	 command = _getch();
+	 system("cls");
+ }
+ void About()
+ {
+	 int x = 80, y = 20;
+	 Common::gotoXY(x, y);
+	 for (int i = x; i < x + 50; i++)
+	 {
+		 
+		 cout << char(220);
+	 }
+	 Common::gotoXY(x - 1, y - 1);
+	 for (int i = x - 1; i < x + 51; i++)
+	 {
+		 cout << char(220);
+	 }
+	 Common::gotoXY(x, y + 17);
+	 for (int i = x; i < x + 50; i++)
+	 {
+		 cout << char(220);
+	 }
+	 Common::gotoXY(x - 1, y + 18);
+	 for (int i = x - 1; i < x + 51; i++)
+	 {
+		 cout << char(220);
+	 }
+
+
+	 for (int i = 1; i < 18; i++)
+	 {
+		 Common::gotoXY(x, y + i); cout << char(219);
+		 Common::gotoXY(x + 49, y + i); cout << char(219);
+	 }
+	 Common::gotoXY(x + 2, y + 1); cout << "                DO AN CO CARO";
+	 Common::gotoXY(x + 2, y + 3); cout << "   GIAO VIEN HUONG DAN : ";
+	 
+	 Common::gotoXY(x + 2, y + 5); cout << "   MSSV : 19127295";
+	 
+	 Common::gotoXY(x + 2, y + 7); cout << "   MSSV : 19127612";
+	 
+	 Common::gotoXY(x + 2, y + 9); cout << "   MSSV : 19127615";
+	 
+	 Common::gotoXY(x + 2, y + 11); cout << "   MSSV : 19127456";
+	 
+	 Common::gotoXY(x + 2, y + 15); cout << "   Nhan bat ky de thoat ";
+	 Common::gotoXY(x + 2, y + 16); cout << " Chuc cac ban choi game vui ve";
+
+	 TextColor(12);
+	 Common::gotoXY(x + 2, y + 4); cout << "             TRUONG TOAN THINH ";
+	 Common::gotoXY(x + 2, y + 6); cout << "             TRAN THE TOAN ";
+	 Common::gotoXY(x + 2, y + 8); cout << "             TRAN ANH TU ";
+	 Common::gotoXY(x + 2, y + 10); cout << "             NGUYEN ANH TUAN   ";
+	 Common::gotoXY(x + 2, y + 12); cout << "             NGUYEN THANH KIEN";
+	 PlaySound(TEXT("abouthelp.wav"), NULL, SND_FILENAME | SND_ASYNC);
+	 char command = ' ';
+	 command = _getch();
+	 system("cls");
  }
  int VsComHard(Diem& a, int load, char data[30])
  {
@@ -917,7 +1040,7 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 			 g.waitKeyBoard();
 		 if (g.getCommand() == 27)
 		 {
-
+			 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			 return 27;
 		 }
 		 else
@@ -925,31 +1048,31 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 			 switch (g.getCommand())
 			 {
 			 case 'A':
-
+				 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				 g.moveLeft();
 				 break;
 			 case 'D':
-
+				 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				 g.moveRight();
 				 break;
 			 case 'W':
-
+				 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				 g.moveUp();
 				 break;
 			 case 'S':
-
+				 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				 g.moveDown();
 				 break;
 			 case 'L':
-
+				 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				 g.SaveGame(-5);
 				 break;
 			 case 'T':
-
+				 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				 LoadLoad();
 				 break;
 			 case 13:
-
+				 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				 int x = g.getXatEnter();
 				 int y = g.getYatEnter();
 				 if (g.processCheckBoard()) {
@@ -963,12 +1086,12 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 								 switch (_getch())
 								 {
 								 case 'y':
-
+									 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									 load = 0;
 									 return VsComHard(a, load, data);
 									 break;
 								 case 27:
-
+									 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									 system("cls");
 									 ScreenStartGame(n - 1);
 									 break;
@@ -985,12 +1108,12 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 								 switch (_getch())
 								 {
 								 case 'y':
-
+									 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									 load = 0;
 									 return VsComHard(a, load, data);
 									 break;
 								 case 27:
-
+									 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									 system("cls");
 									 ScreenStartGame(n - 1);
 									 break;
@@ -1007,12 +1130,12 @@ int VsPlayer(Diem& a, int load, char data[30])//struc điểm
 								 switch (_getch())
 								 {
 								 case 'y':
-
+									 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									 load = 0;
 									 return VsComHard(a, load, data);
 									 break;
 								 case 27:
-
+									 PlaySound(TEXT("tick.wav"), NULL, SND_FILENAME | SND_ASYNC);
 									 system("cls");
 									 ScreenStartGame(n - 1);
 									 break;

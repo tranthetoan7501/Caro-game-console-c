@@ -159,15 +159,21 @@ int Game::processFinish(int x, int y)
 	{
 	case -1:
 		system("cls");
+		PlaySound(TEXT("win.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		PrintP1Win();
+		
 		break;
 	case 1:
 		system("cls");
+		PlaySound(TEXT("win.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		PrintP2Win();
+		
 		break;
 	case 0:
 		system("cls");
+		PlaySound(TEXT("win.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		PrintDraw();
+		
 		break;
 	case 2:
 		turn = !turn;
