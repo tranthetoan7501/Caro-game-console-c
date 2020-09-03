@@ -5,7 +5,7 @@
 #define D 24
 #define H 18
 //top : bắt đầu tọa độ trên bàn cờ, left bắt đầu của tọa độ bàn cờ từ trái, D số ô ngang, H số ô đứng
-class checkBoard {
+class Board {
 private:
 
 	Point** pos;// lưu giữ tọa độ x,y,check vào từng ô trong mãng tương đương từng ô trên bàn cờ
@@ -37,8 +37,8 @@ public:
 	int checkWinCol(int x, int y, int value);
 	int checkfirstDiagonal(int x, int y, int value);
 	int checksecondDiagonal(int x, int y, int value);
-	checkBoard();
-	~checkBoard();
+	Board();
+	~Board();
 	// đếm số quân X, số quân O
 	int countX;
 	int countO;

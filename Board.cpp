@@ -4,22 +4,22 @@
 #include "Common.h"
 vector <Point> win;
 
-int checkBoard::getX_at(int i, int j)
+int Board::getX_at(int i, int j)
 {
 	return pos[i][j].getX();
 }
 
-int checkBoard::getY_at(int i, int j)
+int Board::getY_at(int i, int j)
 {
 	return pos[i][j].getY();
 }
 
-int checkBoard::getCheck_at(int i, int j)
+int Board::getCheck_at(int i, int j)
 {
 	return pos[i][j].getCheck();
 }
 
-void checkBoard::loadData(int i, int j, int check)
+void Board::loadData(int i, int j, int check)
 {
 	pos[i][j].setX(j * 5 + 42);
 	pos[i][j].setY(i * 2 + 9);
@@ -42,7 +42,7 @@ void checkBoard::loadData(int i, int j, int check)
 	}
 }
 
-void checkBoard::reset()
+void Board::reset()
 {
 	for (int i = 0; i < H; i++)
 	{
@@ -55,7 +55,7 @@ void checkBoard::reset()
 	}
 }
 
-void checkBoard::drawBoard()
+void Board::drawBoard()
 {
 	Common::gotoXY(19, 11); cout << "PLAYER 1";
 	Common::gotoXY(174, 11); cout << "PLAYER 2";
@@ -109,7 +109,7 @@ void checkBoard::drawBoard()
 	Common::gotoXY(pos[0][0].getX(), pos[0][0].getY());
 }
 
-int checkBoard::check_XO(int x, int y, int turn)
+int Board::check_XO(int x, int y, int turn)
 {
 	for (int i = 0; i < H; i++)
 	{
@@ -134,7 +134,7 @@ int checkBoard::check_XO(int x, int y, int turn)
 	return 0;
 }
 
-int checkBoard::checkWinRow(int x, int y, int value)
+int Board::checkWinRow(int x, int y, int value)
 {
 	int dong, cot;
 	int loop = 1;
@@ -192,7 +192,7 @@ int checkBoard::checkWinRow(int x, int y, int value)
 	else win.clear();
 	return test;
 }
-int checkBoard::checkWinCol(int x, int y, int value) // Xet chien thang theo hang doc
+int Board::checkWinCol(int x, int y, int value) // Xet chien thang theo hang doc
 {
 	int dong, cot;
 	int test = -1, loop = 1;
@@ -249,7 +249,7 @@ int checkBoard::checkWinCol(int x, int y, int value) // Xet chien thang theo han
 	else win.clear();
 	return test;
 }
-int checkBoard::checksecondDiagonal(int x, int y, int value)
+int Board::checksecondDiagonal(int x, int y, int value)
 {
 	int dong, cot;
 	int test = -1, loop = 1;
@@ -311,7 +311,7 @@ int checkBoard::checksecondDiagonal(int x, int y, int value)
 	else win.clear();
 	return test;
 }
-int checkBoard::checkfirstDiagonal(int x, int y, int value)
+int Board::checkfirstDiagonal(int x, int y, int value)
 {
 	int dong, cot;
 	int test = -1, loop = 1;
@@ -373,7 +373,7 @@ int checkBoard::checkfirstDiagonal(int x, int y, int value)
 	return test;
 }
 
-int checkBoard::testBoard(int x, int y)
+int Board::testBoard(int x, int y)
 {
 	//x chien thang
 	if (checkWinRow(x, y, -1) == 1)
@@ -397,7 +397,7 @@ int checkBoard::testBoard(int x, int y)
 		return 0;
 	return 2;//chưa ai thắng
 }
-Point checkBoard::Tim_NuocDi_hard()
+Point Board::Tim_NuocDi_hard()
 {
 	Point result;
 	int dong = 0, cot = 0;
@@ -428,7 +428,7 @@ Point checkBoard::Tim_NuocDi_hard()
 	result.setY(dong*2 + 9);
 	return result;
 }
-long checkBoard::diem_ngang_hard(int dong, int cot)
+long Board::diem_ngang_hard(int dong, int cot)
 {
 	long diem = 0;
 	long soquanta1 = 0;
@@ -611,7 +611,7 @@ long checkBoard::diem_ngang_hard(int dong, int cot)
 	return diem;
 	
 }
-long checkBoard::diem_doc_hard(int dong, int cot)
+long Board::diem_doc_hard(int dong, int cot)
 {
 	long diem = 0;
 	long soquanta1 = 0;
@@ -793,7 +793,7 @@ long checkBoard::diem_doc_hard(int dong, int cot)
 	}
 	return diem;
 }
-long checkBoard::diem_cheo1_hard(int dong, int cot)
+long Board::diem_cheo1_hard(int dong, int cot)
 {
 	long diem = 0;
 	long soquanta1 = 0;
@@ -975,7 +975,7 @@ long checkBoard::diem_cheo1_hard(int dong, int cot)
 	}
 	return diem;
 }
-long checkBoard::diem_cheo2_hard(int dong, int cot)
+long Board::diem_cheo2_hard(int dong, int cot)
 {
 	long diem = 0;
 	long soquanta1 = 0;
@@ -1160,7 +1160,7 @@ long checkBoard::diem_cheo2_hard(int dong, int cot)
 
 
 
-Point checkBoard::Tim_NuocDi_easy()
+Point Board::Tim_NuocDi_easy()
 {
 	Point result;
 	int dong = 0, cot = 0;
@@ -1192,7 +1192,7 @@ Point checkBoard::Tim_NuocDi_easy()
 	return result;
 }
 
-long checkBoard::diem_ngang_easy(int dong, int cot)
+long Board::diem_ngang_easy(int dong, int cot)
 {
 	long diem = 0;
 	long soquanta1 = 0;
@@ -1342,7 +1342,7 @@ long checkBoard::diem_ngang_easy(int dong, int cot)
 	return diem;
 
 }
-long checkBoard::diem_doc_easy(int dong, int cot)
+long Board::diem_doc_easy(int dong, int cot)
 {
 	long diem = 0;
 	long soquanta1 = 0;
@@ -1486,7 +1486,7 @@ long checkBoard::diem_doc_easy(int dong, int cot)
 	}
 	return diem;
 }
-long checkBoard::diem_cheo1_easy(int dong, int cot)
+long Board::diem_cheo1_easy(int dong, int cot)
 {
 	long diem = 0;
 	long soquanta1 = 0;
@@ -1634,7 +1634,7 @@ long checkBoard::diem_cheo1_easy(int dong, int cot)
 	}
 	return diem;
 }
-long checkBoard::diem_cheo2_easy(int dong, int cot)
+long Board::diem_cheo2_easy(int dong, int cot)
 {
 	long diem = 0;
 	long soquanta1 = 0;
@@ -1786,7 +1786,7 @@ long checkBoard::diem_cheo2_easy(int dong, int cot)
 
 
 
-checkBoard::checkBoard()
+Board::Board()
 {
 	pos = new Point * [18];
 	for (int i = 0; i < 18; i++)
@@ -1795,7 +1795,7 @@ checkBoard::checkBoard()
 	}
 }
 
-checkBoard::~checkBoard()
+Board::~Board()
 {
 	for (int i = 0; i < 18; i++)
 	{

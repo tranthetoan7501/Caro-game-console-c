@@ -8,7 +8,7 @@
 
 class Game
 {
-	checkBoard* b;		
+	Board* b;		
 	bool turn;//lượt true lượt người chơi 1, false là lượt người chơi 2		
 	int x, y;		
 	int command; //Nhận phím

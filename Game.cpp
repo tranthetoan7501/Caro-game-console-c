@@ -278,7 +278,7 @@ int Game::DemNuocCoDaDi()
 
 Game::Game()
 {
-	b = new checkBoard;
+	b = new Board;
 	loop = turn = true;
 	command = -1;
 	x = left;
@@ -289,5 +289,5 @@ Game::Game()
 
 Game::~Game()
 {
-	
+	delete b;
 }
